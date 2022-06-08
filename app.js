@@ -2,6 +2,7 @@
 const paper = document.querySelector('.paper');
 const sicssor = document.querySelector('.sicssor');
 const rock = document.querySelector('.rock');
+const rules = document.querySelector('.rules');
 
 
 
@@ -94,4 +95,6 @@ rock.addEventListener("click", function(animate){
 
 
 
-
+rules.addEventListener("click", function(){
+  alert("hello world")
+})
