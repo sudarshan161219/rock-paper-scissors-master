@@ -3,7 +3,8 @@ const paper = document.querySelector('.paper');
 const sicssor = document.querySelector('.sicssor');
 const rock = document.querySelector('.rock');
 const rules = document.querySelector('.rules');
-
+const closeBtn = document.querySelector('.close-btn');
+const modal = document.querySelector('.modal-overlay')
 
 
 // { working with Animation
@@ -94,7 +95,13 @@ rock.addEventListener("click", function(animate){
 //end  }
 
 
+function moDal(){
+  rules.addEventListener("click", function(){
+    modal.classList.add('open-modal');
+  });
 
-rules.addEventListener("click", function(){
-  alert("hello world")
-})
+  closeBtn.addEventListener("click", function(){
+    modal.classList.remove('open-modal');
+  });
+}
+moDal()
