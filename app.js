@@ -4,7 +4,7 @@ const sicssor = document.querySelector('.sicssor');
 const rock = document.querySelector('.rock');
 const rules = document.querySelector('.rules');
 const closeBtn = document.querySelector('.close-btn');
-const modal = document.querySelector('.modal-overlay')
+const modal = document.querySelector('.modal-overlay');
 
 
 // { working with Animation
@@ -12,7 +12,6 @@ paper.addEventListener("click", function(animate){
 
     let myAnimation = anime({
         targets: '.paper',
-      
         scale:(0.5),
         rotate:360 ,
         borderRadius: 50,
@@ -34,7 +33,7 @@ paper.addEventListener("click", function(animate){
           });
       }
  
-})
+});
 
 sicssor.addEventListener("click", function(animate){
 
@@ -61,7 +60,7 @@ sicssor.addEventListener("click", function(animate){
           });
 
       }
-})
+});
 
 rock.addEventListener("click", function(animate){
 
@@ -83,18 +82,18 @@ rock.addEventListener("click", function(animate){
             borderRadius: 50,
             duration: 1000,
             easing: 'easeInOutSine',
-            direction: 'alternate',
-          
+            direction: 'alternate'
           });
 
       }
 
-})
+});
 
 
 //end  }
 
 
+// working with modal {
 function moDal(){
   rules.addEventListener("click", function(){
     modal.classList.add('open-modal');
@@ -104,4 +103,5 @@ function moDal(){
     modal.classList.remove('open-modal');
   });
 }
-moDal()
+moDal();
+// }
