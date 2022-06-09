@@ -83,8 +83,14 @@ grid-gap: 50px;
   top: 235%;
   transform: translateX(-50%);
   width: 65%;
-  transition: all 0.5s ease-in-out;
+  /* transition: all 0.5s ease-in-out; */
   z-index: -1;
+}
+
+.remove-triangle{
+  display: none;
+  transform: scale(0);
+  transition: all ease-in 0.5s;
 }
 
   .header{
@@ -119,17 +125,26 @@ grid-gap: 50px;
       margin-top: 3rem;
       display: flex;
       justify-content: space-around;
+      /* visibility: hidden; */
+/* display: none; */
   }
 
   .img-container2{
     display: flex;
     justify-content: center;
+    /* visibility: hidden; */
+    /* display: none; */
+
   }
 
   .paper, .sicssor, .rock{
       width: 120px;
       height: 120px;
       border-radius: 100px;
+  }
+
+  .paper, .sicssor, .rock:hover{
+    cursor: pointer;
   }
 
   .circle{
@@ -159,16 +174,18 @@ grid-gap: 50px;
     align-content: center;
   }
 
-.images-container{
+/* .images-container{
+ 
+  
+
+} */
+
+.conatiner-img{
   display: grid;
   grid-gap: 20px;
-
 }
 
-.rotate {
-	transition: transform 0.5s ease-in;
-  transform-origin: 100% 0%;
-}
+
 
 .rules{
   width:120px;
@@ -184,7 +201,7 @@ grid-gap: 50px;
   background-color: inherit;
 }
 
-rules:hover{
+.rules:hover{
   cursor: pointer;
 }
 
@@ -208,22 +225,22 @@ rules:hover{
   background-color: #fff;
   display: grid;
   visibility: hidden;
-  /* z-index: -10; */
+  z-index: -10;
   transition: all 0.3s ease;
 	transform: scale(0);
 }
+
+
 /* OPEN/CLOSE MODAL */
 .open-modal {
   visibility: visible;
   z-index: 10;
   transform: scale(1);
- 
+  transition:all linear 0.3s;
 }
 .modal-container {
   margin: 6rem 0 0 0;
   background: var(--clr-white);
-  /* border-radius: var(--radius); */
-
   height: 30vh;
   max-width: var(--fixed-width);
   text-align: center;
@@ -231,17 +248,61 @@ rules:hover{
   grid-gap: 100px;
   place-items: center;
   position: relative;
+  transition:all linear 0.3s;
 }
+
+
 .close-btn {
   font-size: 2.5rem;
   background-color: inherit;
   border: none;
   color: var(--color-DarkText);
   cursor: pointer;
- 
 }
 .close-btn:hover {
   color: var(--clr-red-light);
   transform: scale(0.5);
+  transition:all linear 0.3s;
 }
 
+.step-two-container {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-around;
+  display: none;
+
+}
+
+ .show-step-two-container {
+  display: flex;
+  transform: scale(1);
+  transition: all ease-in 0.5s;
+
+}
+
+/* .allcontainer ,.step-two-container {
+  grid-gap:0px;
+} */
+
+.you-picked, .the-house-picked{
+  width: 145px;
+  height: 145px;
+  border-radius: 100px;
+}
+
+ .remove-conatiner-img {
+   display: none;
+   opacity: 0.5;
+  transform: scale(0);
+  transition: all ease-in 0.5s;
+}
+
+.step-two-para{
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+
+}
