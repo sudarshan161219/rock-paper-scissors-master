@@ -3,6 +3,7 @@ const paper = document.querySelector('.paper');
 const sicssor = document.querySelector('.sicssor');
 const rock = document.querySelector('.rock');
 
+
 const closeBtn = document.querySelector('.close-btn');
 const modal = document.querySelector('.modal-overlay');
 const imgConatiner = document.querySelector('.img-container');
@@ -159,7 +160,7 @@ rock.addEventListener("click", function(animate){
 // working with modal {
 
 function moDal(){
-  rules.addEventListener("click", function(){
+  ruleS.addEventListener("click", function(){
     modal.classList.add('open-modal');
 
   });
