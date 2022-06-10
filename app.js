@@ -2,7 +2,7 @@
 const paper = document.querySelector('.paper');
 const sicssor = document.querySelector('.sicssor');
 const rock = document.querySelector('.rock');
-const rules = document.querySelector('.rules');
+
 const closeBtn = document.querySelector('.close-btn');
 const modal = document.querySelector('.modal-overlay');
 const imgConatiner = document.querySelector('.img-container');
@@ -10,8 +10,12 @@ const imgConatiner2 = document.querySelector('.img-container2');
 const showContainer = document.querySelector('.step-two-container');
 const triangle = document.querySelector('.triangle');
 const circle = document.querySelector('.circle');
+const houseCircle = document.querySelector('.house-circle');
 const theHousePicked = document.getElementsByClassName('.the-house-picked');
 const pickedImg = document.querySelector('.you-picked-img');
+const housePickedImg = document.querySelector('.house-picked-img');
+const ruleS = document.querySelector('.rules');
+const ruleS2 = document.querySelector('.result-rules');
 
 
 
@@ -48,6 +52,7 @@ paper.addEventListener("click", function(animate){
         imgConatiner2.classList.add('remove-conatiner-img');
         triangle.classList.add('remove-triangle');
         showContainer.classList.add('show-step-two-container');
+        ruleS.classList.add('rules-hide');
 
       },2000)
       
@@ -92,6 +97,7 @@ sicssor.addEventListener("click", function(animate){
           imgConatiner2.classList.add('remove-conatiner-img');
           triangle.classList.add('remove-triangle');
           showContainer.classList.add('show-step-two-container');
+          ruleS.classList.add('rules-hide');
         },2000)
         
       }
@@ -99,10 +105,6 @@ sicssor.addEventListener("click", function(animate){
     
       pickedImg.src = 'images/icon-scissors.svg';  
 
-      
-      // for (let i = 0; i < circle.length; i++) {
-      //   circle[i].style.backgroundImage = " radial-gradient(hsl(39, 89%, 49%) , hsl(40, 84%, 53%))";
-      // }
       circle.style.backgroundImage = " radial-gradient(hsl(39, 89%, 49%) , hsl(40, 84%, 53%))";
      
       
@@ -138,6 +140,7 @@ rock.addEventListener("click", function(animate){
           imgConatiner2.classList.add('remove-conatiner-img');
           triangle.classList.add('remove-triangle');
           showContainer.classList.add('show-step-two-container');
+          ruleS.classList.add('rules-hide');
         },2000)
         
       }
@@ -158,6 +161,12 @@ rock.addEventListener("click", function(animate){
 function moDal(){
   rules.addEventListener("click", function(){
     modal.classList.add('open-modal');
+
+  });
+
+  ruleS2.addEventListener("click", function(){
+    modal.classList.add('open-modal');
+
   });
 
   closeBtn.addEventListener("click", function(){
@@ -171,5 +180,34 @@ moDal();
 
 
 
+// working with randomization{
 
+function random(){
 
+ let imgs = ['paper', 'scissors', 'rock'];
+
+ const randomNumber = getRandomimgs();
+    
+ img = imgs[randomNumber];
+
+ housePickedImg.src = `images/icon-${img}.svg`;
+  
+
+if(img === 'scissors'){
+  houseCircle.style.backgroundImage = " radial-gradient(hsl(39, 89%, 49%) , hsl(40, 84%, 53%))";
+}
+
+else if(img === 'rock'){
+  houseCircle.style.backgroundImage = "radial-gradient(hsl(349, 71%, 52%) ,hsl(349, 70%, 56%))";
+
+}
+
+  function getRandomimgs() {
+    return Math.floor(Math.random() * imgs.length);
+  }
+
+}
+
+random();
+
+// }

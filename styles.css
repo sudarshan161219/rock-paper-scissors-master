@@ -124,7 +124,7 @@ grid-gap: 50px;
   .img-container{
       margin-top: 3rem;
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       /* visibility: hidden; */
 /* display: none; */
   }
@@ -138,8 +138,8 @@ grid-gap: 50px;
   }
 
   .paper, .sicssor, .rock{
-      width: 120px;
-      height: 120px;
+      width: 145px;
+      height: 145px;
       border-radius: 100px;
   }
 
@@ -147,7 +147,7 @@ grid-gap: 50px;
     cursor: pointer;
   }
 
-  .circle{
+  .circle, .house-circle {
       width:100%;
       height: 100%;
       border-radius: 100px;
@@ -174,6 +174,15 @@ grid-gap: 50px;
     align-content: center;
   }
 
+  .dark-inner-circle{
+    position: absolute;
+    right: 5px;
+    width: 120px;
+    height: 120px;
+    border-radius: 100px;
+    background-color: var(--color-DarkText);
+    z-index: -1;
+  }
 /* .images-container{
  
   
@@ -187,7 +196,7 @@ grid-gap: 50px;
 
 
 
-.rules{
+.rules , .result-rules{
   width:120px;
   height:40px;
   border:2px solid #fff;
@@ -205,15 +214,22 @@ grid-gap: 50px;
   cursor: pointer;
 }
 
+.rules-hide{
+  display: none;
+}
+
 .rules-paragraph{
   letter-spacing: 1.5px;
 }
 
-.allcontainer{
+/* .allcontainer{
+ 
+} */
+
+.images-container{
   display:grid;
   grid-gap:161px;
 }
-
 
 
 .modal-overlay {
@@ -266,28 +282,37 @@ grid-gap: 50px;
 }
 
 .step-two-container {
-  margin-top: 5rem;
-  display: flex;
-  justify-content: space-around;
+  margin-top: 4rem;
+  display: grid;
+  grid-gap: 120px;
+  /* justify-content: space-between; */
   display: none;
 
 }
 
- .show-step-two-container {
+.flex-container{
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ .show-step-two-container {
+  display: grid;
   transform: scale(1);
   transition: all ease-in 0.5s;
 
 }
 
-/* .allcontainer ,.step-two-container {
-  grid-gap:0px;
-} */
 
 .you-picked, .the-house-picked{
   width: 145px;
   height: 145px;
   border-radius: 100px;
+}
+
+.the-house-picked{
+  position: relative;
+  /* display: none; */
 }
 
  .remove-conatiner-img {
@@ -305,4 +330,35 @@ grid-gap: 50px;
   font-size: 1rem;
   margin-top: 1.5rem;
 
+}
+
+.btn-heading{
+  display: grid;
+  grid-gap: 45px;
+  text-align: center;
+
+}
+
+.play-heading{
+  display: grid;
+  grid-gap: 10px;
+}
+
+.result-heading{
+  color: #fff;
+  font-size: 4rem;
+}
+
+.play-again{
+  width:200px;
+  height:50px;
+  border:2px solid #fff;
+  color: var(--color-DarkText);
+  border-radius: 10px;
+  display:inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  font-weight: 700;
+  background-color: #fff;
 }
