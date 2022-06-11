@@ -3,6 +3,10 @@ const paper = document.querySelector('.paper');
 const sicssor = document.querySelector('.sicssor');
 const rock = document.querySelector('.rock');
 
+const paperImg = document.querySelector('.paper-img');
+const sicssorImg = document.querySelector('.sicssor-img');
+const rockImg = document.querySelector('.rock-img');
+
 
 const closeBtn = document.querySelector('.close-btn');
 const modal = document.querySelector('.modal-overlay');
@@ -15,8 +19,12 @@ const houseCircle = document.querySelector('.house-circle');
 const theHousePicked = document.getElementsByClassName('.the-house-picked');
 const pickedImg = document.querySelector('.you-picked-img');
 const housePickedImg = document.querySelector('.house-picked-img');
+const resultHeading = document.querySelector('.result-heading');
+
 const ruleS = document.querySelector('.rules');
 const ruleS2 = document.querySelector('.result-rules');
+
+const score = document.querySelector('.score');
 
 
 
@@ -62,9 +70,11 @@ paper.addEventListener("click", function(animate){
     }
       
     pickedImg.src = 'images/icon-paper.svg';
-    
+    results ()
+    // result2 (rock)
+    // result3 (sicssor)
 
-
+   
 });
 
 sicssor.addEventListener("click", function(animate){
@@ -107,8 +117,8 @@ sicssor.addEventListener("click", function(animate){
       pickedImg.src = 'images/icon-scissors.svg';  
 
       circle.style.backgroundImage = " radial-gradient(hsl(39, 89%, 49%) , hsl(40, 84%, 53%))";
-     
-      
+      result2 ()
+   
 });
 
 rock.addEventListener("click", function(animate){
@@ -142,15 +152,13 @@ rock.addEventListener("click", function(animate){
           triangle.classList.add('remove-triangle');
           showContainer.classList.add('show-step-two-container');
           ruleS.classList.add('rules-hide');
-        },2000)
+        },2000);
         
       }
 
       pickedImg.src = 'images/icon-rock.svg';  
       circle.style.backgroundImage = "radial-gradient(hsl(349, 71%, 52%) ,hsl(349, 70%, 56%))";
-  
-      
-      
+      result3 ()
 });
 
 
@@ -194,21 +202,115 @@ function random(){
  housePickedImg.src = `images/icon-${img}.svg`;
   
 
-if(img === 'scissors'){
+
+
+if(img === 'paper'){
+  houseCircle.style.backgroundImage = "radial-gradient(hsl(230, 89%, 62%) , hsl(230, 89%, 65%))";
+  results(paper)
+  result2 (paper)
+  result3 (paper)
+}
+
+else if(img === 'scissors'){
   houseCircle.style.backgroundImage = " radial-gradient(hsl(39, 89%, 49%) , hsl(40, 84%, 53%))";
+  results(sicssor)
+  result2 (sicssor)
+  result3 (sicssor)
 }
 
 else if(img === 'rock'){
   houseCircle.style.backgroundImage = "radial-gradient(hsl(349, 71%, 52%) ,hsl(349, 70%, 56%))";
-
+  results(rock)
+  result2(rock)
+  result3(rock)
+  
 }
+
+
+
+
+
 
   function getRandomimgs() {
     return Math.floor(Math.random() * imgs.length);
   }
+
+
 
 }
 
 random();
 
 // }
+
+
+
+function results() {
+  // let counter = 0;
+  if(img === 'paper'){
+   
+    resultHeading.textContent = "Draw";
+  }
+  
+  else if(img === 'scissors'){
+ 
+    resultHeading.textContent = "you lose";
+  }
+  
+  else if(img === 'rock'){
+  
+    resultHeading.textContent = "you win";
+  //  score.innerHTML = `${'counter++'}` 
+  }
+  
+
+}
+
+results()
+
+
+function result2 (){
+
+ if(img === 'scissors'){
+ 
+    resultHeading.textContent = "Draw"
+  }
+  
+  else if(img === 'rock'){
+  
+    resultHeading.textContent = "you lose"
+  
+  }
+
+  else  if(img === 'paper'){
+   
+    resultHeading.textContent = "you win"
+  }
+
+}
+
+result2 ();
+
+
+
+function result3 (){
+ 
+ if(img === 'rock'){
+  
+    resultHeading.textContent = "Draw"
+  
+  }
+
+  if(img === 'paper'){
+
+    resultHeading.textContent = "you lose"
+  }
+  
+  else if(img === 'scissors'){
+ 
+    resultHeading.textContent = "you win"
+  }
+
+}
+
+result3 ()
