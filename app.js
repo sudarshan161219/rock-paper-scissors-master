@@ -284,6 +284,8 @@ function result2 (){
  if(img === 'scissors'){
  
     resultHeading.textContent = "Draw"
+    setScore(resultHeading.textContent =  "Draw" , tar = score)
+    
   }
   
   else if(img === 'rock'){
@@ -342,9 +344,9 @@ function setScore(resultHeading , tar){
       }
   }
   
-  // else if( Heading === "Draw"){
-  //   tar.textContent = 0;
-  // }
+  else if( resultHeading === "Draw"){
+    tar.textContent = 0;
+  }
 }
 
 
