@@ -19,63 +19,62 @@ const houseCircle = document.querySelector('.house-circle');
 const theHousePicked = document.getElementsByClassName('.the-house-picked');
 const pickedImg = document.querySelector('.you-picked-img');
 const housePickedImg = document.querySelector('.house-picked-img');
-const resultHeading = document.querySelector('.result-heading');
+let resultHeading = document.querySelector('.result-heading');
 
 const ruleS = document.querySelector('.rules');
 const ruleS2 = document.querySelector('.result-rules');
 
 const score = document.querySelector('.score');
-
+const playagain = document.querySelector('.play-again');
 
 
 
 // { working with Animation
 paper.addEventListener("click", function(animate){
+  let myAnimation = anime({
+    targets: '.paper',
+    scale:(0.5),
+    rotate:360 ,
+    borderRadius: 50,
+    duration: 1000,
+    easing: 'easeInOutSine',
+    direction: 'alternate',
 
+  });
+
+if (paper.elementClicked = true) {
     let myAnimation = anime({
-        targets: '.paper',
-        scale:(0.5),
-        rotate:360 ,
+        targets: '.rock, .sicssor',
+        scale:(0.6),
         borderRadius: 50,
         duration: 1000,
         easing: 'easeInOutSine',
         direction: 'alternate',
-   
+        
       });
+  }
+
+if (paper.elementClicked = true) {
+  setTimeout(function(){
+    imgConatiner.classList.add('remove-conatiner-img');
+    imgConatiner2.classList.add('remove-conatiner-img');
+    triangle.classList.add('remove-triangle');
+    showContainer.classList.add('show-step-two-container');
+    random(paper)
+    results (paper)
    
-    if (paper.elementClicked = true) {
-        let myAnimation = anime({
-            targets: '.rock, .sicssor',
-            scale:(0.6),
-            borderRadius: 50,
-            duration: 1000,
-            easing: 'easeInOutSine',
-            direction: 'alternate',
-            
-          });
-      }
+    ruleS.classList.add('rules-hide');
 
-    if (paper.elementClicked = true) {
-      setTimeout(function(){
-        imgConatiner.classList.add('remove-conatiner-img');
-        imgConatiner2.classList.add('remove-conatiner-img');
-        triangle.classList.add('remove-triangle');
-        showContainer.classList.add('show-step-two-container');
-        ruleS.classList.add('rules-hide');
+  },2000)
+}
 
-      },2000)
-      
+  
+pickedImg.src = 'images/icon-paper.svg';
+circle.style.backgroundImage = "radial-gradient(hsl(230, 89%, 62%) , hsl(230, 89%, 65%))"
 
 
-    }
-      
-    pickedImg.src = 'images/icon-paper.svg';
-    results ()
-    // result2 (rock)
-    // result3 (sicssor)
-
-   
 });
+    // });
 
 sicssor.addEventListener("click", function(animate){
 
@@ -108,6 +107,9 @@ sicssor.addEventListener("click", function(animate){
           imgConatiner2.classList.add('remove-conatiner-img');
           triangle.classList.add('remove-triangle');
           showContainer.classList.add('show-step-two-container');
+          random(sicssor)
+          result2 (sicssor)
+          updateScore1(sicssor)
           ruleS.classList.add('rules-hide');
         },2000)
         
@@ -117,7 +119,7 @@ sicssor.addEventListener("click", function(animate){
       pickedImg.src = 'images/icon-scissors.svg';  
 
       circle.style.backgroundImage = " radial-gradient(hsl(39, 89%, 49%) , hsl(40, 84%, 53%))";
-      result2 ()
+      
    
 });
 
@@ -151,6 +153,10 @@ rock.addEventListener("click", function(animate){
           imgConatiner2.classList.add('remove-conatiner-img');
           triangle.classList.add('remove-triangle');
           showContainer.classList.add('show-step-two-container');
+          random(rock)
+          result3(rock)
+          // updateScore2(rock)
+          updateScore(paper++)
           ruleS.classList.add('rules-hide');
         },2000);
         
@@ -158,7 +164,7 @@ rock.addEventListener("click", function(animate){
 
       pickedImg.src = 'images/icon-rock.svg';  
       circle.style.backgroundImage = "radial-gradient(hsl(349, 71%, 52%) ,hsl(349, 70%, 56%))";
-      result3 ()
+      
 });
 
 
@@ -200,22 +206,28 @@ function random(){
  img = imgs[randomNumber];
 
  housePickedImg.src = `images/icon-${img}.svg`;
-  
+//  showContainer.classList.add('show-step-two-container');
 
 
 
 if(img === 'paper'){
   houseCircle.style.backgroundImage = "radial-gradient(hsl(230, 89%, 62%) , hsl(230, 89%, 65%))";
-  results(paper)
-  result2 (paper)
-  result3 (paper)
+  results(paper )
+  result2 (paper )
+  result3 (paper )
+  // updateScore(rock)
+  // updateScore1(paper)
+  // updateScore2(paper)
 }
 
 else if(img === 'scissors'){
   houseCircle.style.backgroundImage = " radial-gradient(hsl(39, 89%, 49%) , hsl(40, 84%, 53%))";
-  results(sicssor)
-  result2 (sicssor)
-  result3 (sicssor)
+  results(sicssor  )
+  result2 (sicssor ) 
+  result3 (sicssor )
+  // updateScore(sicssor )
+  // updateScore1(sicssor )
+  // updateScore2(sicssor )
 }
 
 else if(img === 'rock'){
@@ -223,20 +235,15 @@ else if(img === 'rock'){
   results(rock)
   result2(rock)
   result3(rock)
-  
+  // updateScore(rock)
+  // updateScore1(rock)
+  // updateScore2(rock)
 }
-
-
-
-
-
 
   function getRandomimgs() {
     return Math.floor(Math.random() * imgs.length);
   }
-
-
-
+  
 }
 
 random();
@@ -246,31 +253,34 @@ random();
 
 
 function results() {
-  // let counter = 0;
+  let scoree = 0;
   if(img === 'paper'){
-   
+
     resultHeading.textContent = "Draw";
+   
   }
   
   else if(img === 'scissors'){
- 
-    resultHeading.textContent = "you lose";
+    
+    setScore(resultHeading.textContent = "you lose", tar = score)
+  
+
   }
   
   else if(img === 'rock'){
-  
-    resultHeading.textContent = "you win";
-  //  score.innerHTML = `${'counter++'}` 
+    
+    setScore(resultHeading.textContent = "you win", tar = score)
   }
   
-
+  
+// updateScore()
 }
 
-results()
+results();
 
 
 function result2 (){
-
+  let scoree = 0;
  if(img === 'scissors'){
  
     resultHeading.textContent = "Draw"
@@ -278,13 +288,18 @@ function result2 (){
   
   else if(img === 'rock'){
   
-    resultHeading.textContent = "you lose"
+    setScore(resultHeading.textContent = "you lose", tar = score)
+    
+  
   
   }
 
   else  if(img === 'paper'){
    
-    resultHeading.textContent = "you win"
+    setScore(resultHeading.textContent = "you win", tar = score)
+    
+  
+
   }
 
 }
@@ -294,7 +309,7 @@ result2 ();
 
 
 function result3 (){
- 
+  let scoree = 0;
  if(img === 'rock'){
   
     resultHeading.textContent = "Draw"
@@ -303,14 +318,43 @@ function result3 (){
 
   if(img === 'paper'){
 
-    resultHeading.textContent = "you lose"
+     setScore(resultHeading.textContent = "you lose", tar = score)
+   
   }
   
   else if(img === 'scissors'){
  
-    resultHeading.textContent = "you win"
+    setScore(resultHeading.textContent = "you win", tar = score)
+  
   }
 
 }
 
 result3 ()
+
+function setScore(resultHeading , tar){
+//  let  = Heading 
+  if(resultHeading === "you win"){
+      tar.textContent++;
+  }else if( resultHeading === "you lose"){
+      if(tar.textContent > 0){
+        tar.textContent--;
+      }
+  }
+  
+  // else if( Heading === "Draw"){
+  //   tar.textContent = 0;
+  // }
+}
+
+
+
+playagain.addEventListener("click", function(e){
+  imgConatiner.classList.remove('remove-conatiner-img');
+  imgConatiner2.classList.remove('remove-conatiner-img');
+  triangle.classList.remove('remove-triangle');
+  showContainer.classList.remove('show-step-two-container');
+  ruleS.classList.remove('rules-hide');
+  
+});
+
