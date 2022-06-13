@@ -329,7 +329,7 @@ result2 ();
 
 
 function setScore(resultHeading ,tar){ 
-   
+    tar = 0
 
   if(resultHeading === "you win"){
     tar.textContent++;
