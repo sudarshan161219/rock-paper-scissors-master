@@ -276,16 +276,17 @@ random();
 // }
 
 function results() {
+
   if (img === 'rock') {
-    setScore(resultHeading.textContent = "you win",  tar = score)
+    setScore(resultHeading.textContent = "you win",  score)
   }
   
    else if(img ===  'scissors') {
-    setScore(resultHeading.textContent = "you lose",  tar = score)
+    setScore(resultHeading.textContent = "you lose",   score)
   }
 
  else if(img ===  'paper') {
-    setScore(resultHeading.textContent = "draw",  tar = score)
+    setScore(resultHeading.textContent = "draw",   score)
   }
 
 }
@@ -294,31 +295,32 @@ results()
 
 
 function result1() {
+  
   if (img === 'paper') {
-     setScore(resultHeading.textContent = "you win",  tar = score)
+     setScore(resultHeading.textContent = "you win",  score)
   }
   
  else if(img === 'rock') {
-   setScore(resultHeading.textContent = "you lose",  tar = score)
+   setScore(resultHeading.textContent = "you lose",   score)
   } 
  else if(img === 'scissors') {
-    setScore(resultHeading.textContent = "draw",  tar = score)
+    setScore(resultHeading.textContent = "draw",  score)
   }
 }
 result1();
 
 
 function result2() {
- 
+  
   if (img === 'scissors') {
-    setScore(resultHeading.textContent = "you win",  tar = score)
+    setScore(resultHeading.textContent = "you win",   score)
   }
   
  else if(img === 'paper') {
-    setScore(resultHeading.textContent = "you lose",  tar = score)
+    setScore(resultHeading.textContent = "you lose",   score)
   } 
  else if(img === 'rock') {
-    setScore(resultHeading.textContent = "draw",  tar = score)
+    setScore(resultHeading.textContent = "draw",   score)
   }
 }
 result2 ();
@@ -328,28 +330,34 @@ result2 ();
 
 
 
-function setScore(resultHeading ,tar){ 
-    tar = 0
+function setScore(resultHeading ,score){ 
+  
 
   if(resultHeading === "you win"){
-    tar.textContent++;
+
+    score.innerHTML++;
 }
 
 
-else if( resultHeading === "you lose"){
-    if(tar.textContent > 0){
-      tar.textContent--;
+ else if( resultHeading === "you lose"){
+
+    if(score.textContent > 0){
+      score.innerHTML--;
     }
 }
 
-else if( resultHeading === "draw"){
-  tar.textContent = 0;
-}
-
+//  if( tar.textContent === 1){
+//   tar.textContent = 0;
+// }
+// window("click", function(event){
+//   event.preventDefault(tar)
+// });
  
+
+
 }
 
-setScore(resultHeading ,score)
+// setScore(resultHeading ,score)
 
 
 
@@ -360,5 +368,6 @@ playagain.addEventListener("click", function(){
   showContainer.classList.remove('show-step-two-container');
    ruleS.classList.remove('rules-hide');
    theHousePicked.classList.remove('show-the-house')
+  
 });
 
