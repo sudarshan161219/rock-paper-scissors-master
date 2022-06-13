@@ -67,11 +67,6 @@ if (paper.elementClicked = true) {
       
     random(paper)
     results(paper)
-    setScore(resultHeading ,tar)
-  
-    
-    
-  
 
 
     setTimeout(() => {
@@ -130,12 +125,11 @@ sicssor.addEventListener("click", function(animate){
           showContainer.classList.add('show-step-two-container');
           ruleS.classList.add('rules-hide');
      
-           result1(sicssor)
           random(sicssor)
+          result1(sicssor)
 
-          setScore(resultHeading ,tar)
 
-          setTimeout((sicssor) => {
+          setTimeout(() => {
             theHousePicked.classList.add('show-the-house');
           }, 500)
         
@@ -189,11 +183,13 @@ rock.addEventListener("click", function(animate){
           showContainer.classList.add('show-step-two-container');
           ruleS.classList.add('rules-hide');
           // setScore(resultHeading , score)
- random(rock)
-result2(rock)
-          setScore(resultHeading ,tar)
-  
-          setTimeout((rock) => {
+ 
+          random(rock)
+          result2(rock)
+
+
+
+          setTimeout(() => {
             theHousePicked.classList.add('show-the-house');
           }, 500)
 
@@ -209,11 +205,6 @@ result2(rock)
 
 
 //end  }
-
-
-
-
-
 
 
 
@@ -239,52 +230,44 @@ moDal();
 // }
 
 
-
-
 // working with randomization{
 
 function random(){
 
  let imgs = ['paper', 'scissors', 'rock'];
 
- const randomNumber = getRandomimgs();
     
- img = imgs[randomNumber];
+ img = imgs[Math.floor(Math.random() * imgs.length)];
 
  housePickedImg.src = `images/icon-${img}.svg`;
+
+ function getRandomimgs() {
+  return Math.floor(Math.random() * 2);
+
+}
+
 
 
 
 
 if(img === 'paper'){
   houseCircle.style.backgroundImage = "radial-gradient(hsl(230, 89%, 62%) , hsl(230, 89%, 65%)";
-  // result2(rock) 
-  // result1(sicssor) 
-  results(paper) 
+    results()
 }
 
 else if(img === 'scissors'){
   houseCircle.style.backgroundImage = " radial-gradient(hsl(39, 89%, 49%) , hsl(40, 84%, 53%))";
-  // result2(sicssor) 
-  result1(sicssor) 
-  // results(sicssor) 
+
+  result1();
+
 }
 
 else if(img === 'rock'){
   houseCircle.style.backgroundImage = "radial-gradient(hsl(349, 71%, 52%) ,hsl(349, 70%, 56%))";
-  result2(rock) 
-  // result1(rock) 
-  // results(rock) 
+  result2();
+
 }
 
-  function getRandomimgs() {
-    return Math.floor(Math.random() * 2);
-  
-  }
-
-
-  
-  
 
 }
 
@@ -294,29 +277,32 @@ random();
 
 function results() {
   if (img === 'rock') {
-    setScore(setScore(resultHeading.textContent = "you win",  tar = score))
+    setScore(resultHeading.textContent = "you win",  tar = score)
   }
   
-  if(img === 'scissors') {
-    setScore(setScore(resultHeading.textContent = "you lose",  tar = score))
-  } 
-  if(img === 'paper') {
-    setScore(setScore(resultHeading.textContent = "draw",  tar = score))
+   else if(img ===  'scissors') {
+    setScore(resultHeading.textContent = "you lose",  tar = score)
   }
+
+ else if(img ===  'paper') {
+    setScore(resultHeading.textContent = "draw",  tar = score)
+  }
+
 }
 results()
 
 
+
 function result1() {
   if (img === 'paper') {
-    setScore(setScore(resultHeading.textContent = "you win",  tar = score))
+     setScore(resultHeading.textContent = "you win",  tar = score)
   }
   
-  if(img === 'rock') {
-    setScore(setScore(resultHeading.textContent = "you lose",  tar = score))
+ else if(img === 'rock') {
+   setScore(resultHeading.textContent = "you lose",  tar = score)
   } 
-  if(img === 'scissors') {
-    setScore(setScore(resultHeading.textContent = "draw",  tar = score))
+ else if(img === 'scissors') {
+    setScore(resultHeading.textContent = "draw",  tar = score)
   }
 }
 result1();
@@ -325,18 +311,17 @@ result1();
 function result2() {
  
   if (img === 'scissors') {
-    setScore(setScore(resultHeading.textContent = "you win",  tar = score))
+    setScore(resultHeading.textContent = "you win",  tar = score)
   }
   
-  if(img === 'paper') {
-    setScore(setScore(resultHeading.textContent = "you lose",  tar = score))
+ else if(img === 'paper') {
+    setScore(resultHeading.textContent = "you lose",  tar = score)
   } 
-  if(img === 'rock') {
-    setScore(setScore(resultHeading.textContent = "draw",  tar = score))
+ else if(img === 'rock') {
+    setScore(resultHeading.textContent = "draw",  tar = score)
   }
 }
 result2 ();
-
 
 
 
@@ -357,7 +342,7 @@ else if( resultHeading === "you lose"){
     }
 }
 
-else if( resultHeading === "Draw"){
+else if( resultHeading === "draw"){
   tar.textContent = 0;
 }
 
