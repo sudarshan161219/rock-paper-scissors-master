@@ -1,140 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | Rock, Paper, Scissors</title>
 
   <!-- google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap"
+    rel="stylesheet">
 
   <!-- anime.js -->
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
 
-<!-- fontawesome -->
+  <!-- fontawesome -->
   <script src="https://kit.fontawesome.com/89bf2e29f9.js" crossorigin="anonymous"></script>
 
-<!-- styles.css -->
-<link rel="stylesheet" href="styles.css">
+  <!-- styles.css -->
+  <link rel="stylesheet" href="styles.css">
 
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
   </style>
 </head>
+
 <body>
-<main class="container"  >
-  <div class="card">
-    <div class="header-container">
-    <img  class="triangle" src="images/bg-triangle.svg" alt="triangle">
-    <div class="header">
-      <div class="objects">
-        <h1>ROCK</h1>
-        <h1>PAPER</h1>
-        <h1>SCISSORS</h1>
-      </div>
-      <div class="scores">
-        <p class="score-paragraph">SCORE</p>
-      <p class="score">0</p>
-      </div>
-    </div>
-  </div>
-<div class="allcontainer">
-  <div class="images-container">
-
-    
-
-<div class="conatiner-img" >
-      
-  <div class="step-two-container">
-    
-    <div class="flex-container">
-
-    <div class="you-picked">
-      <div class="circle">
-        <div class="inner-circle">
-          <img class="you-picked-img" src=" " alt="icon">
+  <main class="container">
+    <div class="card">
+      <div class="header-container">
+        <img class="triangle" src="images/bg-triangle.svg" alt="triangle">
+        <div class="header">
+          <div class="objects">
+            <h1>ROCK</h1>
+            <h1>PAPER</h1>
+            <h1>SCISSORS</h1>
+          </div>
+          <div class="scores">
+            <p class="score-paragraph">SCORE</p>
+            <p class="score">0</p>
+          </div>
         </div>
       </div>
-      <p class="step-two-para">you picked</p>
-    </div>
-  
-    <div class="the-house-picked">
-      <div class="house-circle ">
-        <div class="inner-circle">
-          <img class="house-picked-img" src=" " alt="icon">
+      <div class="allcontainer">
+        <div class="images-container">
+
+
+
+          <div class="conatiner-img">
+
+            <div class="step-two-container">
+
+              <div class="flex-container">
+
+                <div class="you-picked">
+                  <div class="circle">
+                    <div class="inner-circle">
+                      <img class="you-picked-img" src=" " alt="icon">
+                    </div>
+                  </div>
+                  <p class="step-two-para">you picked</p>
+                </div>
+
+                <div class="the-house-picked">
+                  <div class="house-circle ">
+                    <div class="inner-circle">
+                      <img class="house-picked-img" src=" " alt="icon">
+                    </div>
+                  </div>
+                  <p class="step-two-para">the house picked</p>
+                </div>
+
+                <div class="dark-inner-circle"></div>
+
+              </div>
+              <div class="btn-heading">
+                <div class="play-heading">
+                  <h2 class="result-heading"></h2>
+                  <button class="play-again" role="button">
+                    <p class="rules-paragraph">play again</p>
+                  </button>
+                </div>
+                <button class="result-rules" role="button">
+                  <p class="rules-paragraph">RULES</p>
+                </button>
+              </div>
+            </div>
+
+
+
+            <div class="img-container">
+              <div class="paper">
+                <div class="circle">
+                  <div class="inner-circle">
+                    <img class="paper-img icon-img" src="images/icon-paper.svg" alt="paper">
+                  </div>
+                </div>
+              </div>
+
+              <div class="sicssor">
+                <div class="circle sicssor-circle ">
+                  <div class="inner-circle">
+                    <img class="sicssor-img icon-img" src="images/icon-scissors.svg" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="img-container2">
+              <div class="rock">
+                <div class="circle rock-circle">
+                  <div class="inner-circle">
+                    <img class="rock-img icon-img" src="images/icon-rock.svg" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <button class="rules" role="button">
+            <p class="rules-paragraph">RULES</p>
+          </button>
+        </div>
+
+      </div>
+
+      <div class="modal-overlay">
+        <div class="modal-container">
+          <h3>RULES</h3>
+          <img src="images/image-rules.svg" alt="rules">
+          <button class="close-btn">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
         </div>
       </div>
-      <p class="step-two-para">the house picked</p>
     </div>
-
-    <div class="dark-inner-circle" ></div>
-
-  </div>
-  <div class="btn-heading">
-    <div class="play-heading">
-   <h2 class="result-heading"></h2>
-   <button class="play-again"  role="button"> <p class="rules-paragraph">play again</p></button>
-  </div>
-   <button class="result-rules"  role="button"> <p class="rules-paragraph">RULES</p></button>
-  </div>
-  </div>
+  </main>
 
 
-
-  <div class="img-container">
-    <div class="paper">
-      <div class="circle">
-        <div class="inner-circle">
-          <img class="paper-img icon-img" src="images/icon-paper.svg" alt="paper">
-        </div>
-      </div>
-    </div>
-
-    <div class="sicssor">
-      <div class="circle sicssor-circle ">
-        <div class="inner-circle">
-          <img class="sicssor-img icon-img" src="images/icon-scissors.svg" alt="">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="img-container2">
-    <div class="rock">
-      <div class="circle rock-circle">
-        <div class="inner-circle">
-          <img class="rock-img icon-img" src="images/icon-rock.svg" alt="">
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<button class="rules"  role="button"> <p class="rules-paragraph">RULES</p></button>
-</div>
-
-</div>
-
-<div class="modal-overlay">
-  <div class="modal-container">
-    <h3>RULES</h3>
-    <img src="images/image-rules.svg" alt="rules">
-    <button class="close-btn">
-  <i class="fa-solid fa-xmark"></i>
-    </button>
-  </div>
-      </div>
-</div>
-</main>
-
-  
   <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
@@ -145,4 +161,5 @@
  
   </script> -->
 </body>
+
 </html>

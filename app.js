@@ -1,3 +1,4 @@
+// const { remove } = require("animejs");
 
 const paper = document.querySelector('.paper');
 const sicssor = document.querySelector('.sicssor');
@@ -16,21 +17,23 @@ const showContainer = document.querySelector('.step-two-container');
 const triangle = document.querySelector('.triangle');
 const circle = document.querySelector('.circle');
 const houseCircle = document.querySelector('.house-circle');
-const theHousePicked = document.getElementsByClassName('.the-house-picked');
+const theHousePicked = document.querySelector('.the-house-picked');
 const pickedImg = document.querySelector('.you-picked-img');
 const housePickedImg = document.querySelector('.house-picked-img');
-let resultHeading = document.querySelector('.result-heading');
+const resultHeading = document.querySelector('.result-heading');
 
 const ruleS = document.querySelector('.rules');
 const ruleS2 = document.querySelector('.result-rules');
 
-const score = document.querySelector('.score');
+let score = document.querySelector('.score');
 const playagain = document.querySelector('.play-again');
 
 
-
-// { working with Animation
+// {
+// working with paper
 paper.addEventListener("click", function(animate){
+
+// working with paper animation
   let myAnimation = anime({
     targets: '.paper',
     scale:(0.5),
@@ -60,24 +63,42 @@ if (paper.elementClicked = true) {
     imgConatiner2.classList.add('remove-conatiner-img');
     triangle.classList.add('remove-triangle');
     showContainer.classList.add('show-step-two-container');
-    random(paper)
-    results (paper)
-   
     ruleS.classList.add('rules-hide');
+      
+    random(paper)
+    results(paper)
+    setScore(resultHeading ,tar)
+  
+    
+    
+  
+
+
+    setTimeout(() => {
+      theHousePicked.classList.add('show-the-house');
+    }, 500)
+    
 
   },2000)
+
+
+
 }
 
-  
+
 pickedImg.src = 'images/icon-paper.svg';
 circle.style.backgroundImage = "radial-gradient(hsl(230, 89%, 62%) , hsl(230, 89%, 65%))"
 
 
 });
-    // });
+  
+
+
+// working with scissors
 
 sicssor.addEventListener("click", function(animate){
-
+  
+// working with scissors animation
     let myAnimation = anime({
         targets: '.sicssor',
         scale:(0.5),
@@ -107,10 +128,19 @@ sicssor.addEventListener("click", function(animate){
           imgConatiner2.classList.add('remove-conatiner-img');
           triangle.classList.add('remove-triangle');
           showContainer.classList.add('show-step-two-container');
-          random(sicssor)
-          result2 (sicssor)
-          updateScore1(sicssor)
           ruleS.classList.add('rules-hide');
+     
+           result1(sicssor)
+          random(sicssor)
+
+          setScore(resultHeading ,tar)
+
+          setTimeout((sicssor) => {
+            theHousePicked.classList.add('show-the-house');
+          }, 500)
+        
+
+
         },2000)
         
       }
@@ -123,8 +153,12 @@ sicssor.addEventListener("click", function(animate){
    
 });
 
+
+
+// working with rock 
 rock.addEventListener("click", function(animate){
 
+// working with rock animation
     let myAnimation = anime({
         targets: '.rock',
         scale:(0.5),
@@ -153,15 +187,21 @@ rock.addEventListener("click", function(animate){
           imgConatiner2.classList.add('remove-conatiner-img');
           triangle.classList.add('remove-triangle');
           showContainer.classList.add('show-step-two-container');
-          random(rock)
-          result3(rock)
-          // updateScore2(rock)
-          updateScore(paper++)
           ruleS.classList.add('rules-hide');
+          // setScore(resultHeading , score)
+ random(rock)
+result2(rock)
+          setScore(resultHeading ,tar)
+  
+          setTimeout((rock) => {
+            theHousePicked.classList.add('show-the-house');
+          }, 500)
+
+
         },2000);
         
       }
-
+      
       pickedImg.src = 'images/icon-rock.svg';  
       circle.style.backgroundImage = "radial-gradient(hsl(349, 71%, 52%) ,hsl(349, 70%, 56%))";
       
@@ -169,6 +209,12 @@ rock.addEventListener("click", function(animate){
 
 
 //end  }
+
+
+
+
+
+
 
 
 // working with modal {
@@ -206,157 +252,128 @@ function random(){
  img = imgs[randomNumber];
 
  housePickedImg.src = `images/icon-${img}.svg`;
-//  showContainer.classList.add('show-step-two-container');
+
 
 
 
 if(img === 'paper'){
-  houseCircle.style.backgroundImage = "radial-gradient(hsl(230, 89%, 62%) , hsl(230, 89%, 65%))";
-  results(paper )
-  result2 (paper )
-  result3 (paper )
-  // updateScore(rock)
-  // updateScore1(paper)
-  // updateScore2(paper)
+  houseCircle.style.backgroundImage = "radial-gradient(hsl(230, 89%, 62%) , hsl(230, 89%, 65%)";
+  // result2(rock) 
+  // result1(sicssor) 
+  results(paper) 
 }
 
 else if(img === 'scissors'){
   houseCircle.style.backgroundImage = " radial-gradient(hsl(39, 89%, 49%) , hsl(40, 84%, 53%))";
-  results(sicssor  )
-  result2 (sicssor ) 
-  result3 (sicssor )
-  // updateScore(sicssor )
-  // updateScore1(sicssor )
-  // updateScore2(sicssor )
+  // result2(sicssor) 
+  result1(sicssor) 
+  // results(sicssor) 
 }
 
 else if(img === 'rock'){
   houseCircle.style.backgroundImage = "radial-gradient(hsl(349, 71%, 52%) ,hsl(349, 70%, 56%))";
-  results(rock)
-  result2(rock)
-  result3(rock)
-  // updateScore(rock)
-  // updateScore1(rock)
-  // updateScore2(rock)
+  result2(rock) 
+  // result1(rock) 
+  // results(rock) 
 }
 
   function getRandomimgs() {
-    return Math.floor(Math.random() * imgs.length);
-  }
+    return Math.floor(Math.random() * 2);
   
+  }
+
+
+  
+  
+
 }
 
 random();
 
 // }
 
-
-
 function results() {
-  let scoree = 0;
-  if(img === 'paper'){
-
-    resultHeading.textContent = "Draw";
-   
+  if (img === 'rock') {
+    setScore(setScore(resultHeading.textContent = "you win",  tar = score))
   }
   
-  else if(img === 'scissors'){
-    
-    setScore(resultHeading.textContent = "you lose", tar = score)
-  
-
+  if(img === 'scissors') {
+    setScore(setScore(resultHeading.textContent = "you lose",  tar = score))
+  } 
+  if(img === 'paper') {
+    setScore(setScore(resultHeading.textContent = "draw",  tar = score))
   }
-  
-  else if(img === 'rock'){
-    
-    setScore(resultHeading.textContent = "you win", tar = score)
-  }
-  
-  
-// updateScore()
 }
+results()
 
-results();
+
+function result1() {
+  if (img === 'paper') {
+    setScore(setScore(resultHeading.textContent = "you win",  tar = score))
+  }
+  
+  if(img === 'rock') {
+    setScore(setScore(resultHeading.textContent = "you lose",  tar = score))
+  } 
+  if(img === 'scissors') {
+    setScore(setScore(resultHeading.textContent = "draw",  tar = score))
+  }
+}
+result1();
 
 
-function result2 (){
-  let scoree = 0;
- if(img === 'scissors'){
+function result2() {
  
-    resultHeading.textContent = "Draw"
-    setScore(resultHeading.textContent =  "Draw" , tar = score)
-    
+  if (img === 'scissors') {
+    setScore(setScore(resultHeading.textContent = "you win",  tar = score))
   }
   
-  else if(img === 'rock'){
-  
-    setScore(resultHeading.textContent = "you lose", tar = score)
-    
-  
-  
+  if(img === 'paper') {
+    setScore(setScore(resultHeading.textContent = "you lose",  tar = score))
+  } 
+  if(img === 'rock') {
+    setScore(setScore(resultHeading.textContent = "draw",  tar = score))
   }
-
-  else  if(img === 'paper'){
-   
-    setScore(resultHeading.textContent = "you win", tar = score)
-    
-  
-
-  }
-
 }
-
 result2 ();
 
 
 
-function result3 (){
-  let scoree = 0;
- if(img === 'rock'){
-  
-    resultHeading.textContent = "Draw"
-  
-  }
 
-  if(img === 'paper'){
 
-     setScore(resultHeading.textContent = "you lose", tar = score)
+
+
+function setScore(resultHeading ,tar){ 
    
-  }
-  
-  else if(img === 'scissors'){
- 
-    setScore(resultHeading.textContent = "you win", tar = score)
-  
-  }
 
-}
-
-result3 ()
-
-function setScore(resultHeading , tar){
-//  let  = Heading 
   if(resultHeading === "you win"){
-      tar.textContent++;
-  }else if( resultHeading === "you lose"){
-      if(tar.textContent > 0){
-        tar.textContent--;
-      }
-  }
-  
-  else if( resultHeading === "Draw"){
-    tar.textContent = 0;
-  }
+    tar.textContent++;
 }
 
 
+else if( resultHeading === "you lose"){
+    if(tar.textContent > 0){
+      tar.textContent--;
+    }
+}
 
-playagain.addEventListener("click", function(e){
+else if( resultHeading === "Draw"){
+  tar.textContent = 0;
+}
+
+ 
+}
+
+setScore(resultHeading ,score)
+
+
+
+playagain.addEventListener("click", function(){
   imgConatiner.classList.remove('remove-conatiner-img');
   imgConatiner2.classList.remove('remove-conatiner-img');
   triangle.classList.remove('remove-triangle');
   showContainer.classList.remove('show-step-two-container');
-  ruleS.classList.remove('rules-hide');
-  
+   ruleS.classList.remove('rules-hide');
+   theHousePicked.classList.remove('show-the-house')
 });
 
