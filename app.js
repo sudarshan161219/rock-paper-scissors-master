@@ -18,6 +18,7 @@ const triangle = document.querySelector('.triangle');
 const circle = document.querySelector('.circle');
 const houseCircle = document.querySelector('.house-circle');
 const theHousePicked = document.querySelector('.the-house-picked');
+const youpicked = document.querySelector('.you-picked')
 const pickedImg = document.querySelector('.you-picked-img');
 const housePickedImg = document.querySelector('.house-picked-img');
 const resultHeading = document.querySelector('.result-heading');
@@ -27,7 +28,6 @@ const ruleS2 = document.querySelector('.result-rules');
 
 let score = document.querySelector('.score');
 const playagain = document.querySelector('.play-again');
-
 
 // {
 // working with paper
@@ -67,16 +67,16 @@ if (paper.elementClicked = true) {
       
     random(paper)
     results(paper)
-
+    // animatE(paper)
 
     setTimeout(() => {
       theHousePicked.classList.add('show-the-house');
     }, 500)
     
-
+    
   },2000)
 
-
+ 
 
 }
 
@@ -113,7 +113,6 @@ sicssor.addEventListener("click", function(animate){
             duration: 1000,
             easing: 'easeInOutSine',
             direction: 'alternate',
-          
           });
 
       }
@@ -127,13 +126,13 @@ sicssor.addEventListener("click", function(animate){
      
           random(sicssor)
           result1(sicssor)
-
+          // animatE(sicssor)
 
           setTimeout(() => {
             theHousePicked.classList.add('show-the-house');
           }, 500)
         
-
+          
 
         },2000)
         
@@ -186,16 +185,16 @@ rock.addEventListener("click", function(animate){
  
           random(rock)
           result2(rock)
-
+          // animatE(rock)
 
 
           setTimeout(() => {
             theHousePicked.classList.add('show-the-house');
           }, 500)
 
-
+         
         },2000);
-        
+       
       }
       
       pickedImg.src = 'images/icon-rock.svg';  
@@ -253,19 +252,20 @@ function random(){
 if(img === 'paper'){
   houseCircle.style.backgroundImage = "radial-gradient(hsl(230, 89%, 62%) , hsl(230, 89%, 65%)";
     results()
+    // animatE()
 }
 
 else if(img === 'scissors'){
   houseCircle.style.backgroundImage = " radial-gradient(hsl(39, 89%, 49%) , hsl(40, 84%, 53%))";
 
   result1();
-
+  // animatE()
 }
 
 else if(img === 'rock'){
   houseCircle.style.backgroundImage = "radial-gradient(hsl(349, 71%, 52%) ,hsl(349, 70%, 56%))";
   result2();
-
+  // animatE()
 }
 
 
@@ -328,37 +328,50 @@ result2 ();
 
 
 
+// setScore(state = 'init', tar = score);
 
-
-function setScore(resultHeading ,score){ 
+function setScore(resultHeading , score ){ 
   
 
   if(resultHeading === "you win"){
-
     score.innerHTML++;
+    youpicked.classList.add('animation')
+    theHousePicked.classList.remove('animation')
 }
 
 
  else if( resultHeading === "you lose"){
-
+ theHousePicked.classList.add('animation')
+ youpicked.classList.remove('animation')
     if(score.textContent > 0){
       score.innerHTML--;
     }
 }
 
-//  if( tar.textContent === 1){
-//   tar.textContent = 0;
-// }
-// window("click", function(event){
-//   event.preventDefault(tar)
-// });
- 
-
+else if( resultHeading === "draw"){
+  theHousePicked.classList.add('animation')
+  youpicked.classList.add('animation')
+  // score.innerHTML = 0;
+ }
 
 }
 
-// setScore(resultHeading ,score)
-
+// function animatE(){
+  // if(resultHeading === "you win"){
+    
+  // }
+  
+  // else{
+  //   youpicked.classList.remove('animation')
+  // }
+  
+  // if(resultHeading === "you lose"){
+  //   theHousePicked.classList.add('animation')
+  // }else{
+  //  theHousePicked.classList.remove('animation')
+  // }
+// }
+// animatE()
 
 
 playagain.addEventListener("click", function(){
