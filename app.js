@@ -1,5 +1,3 @@
-// const { remove } = require("animejs");
-
 const paper = document.querySelector('.paper');
 const sicssor = document.querySelector('.sicssor');
 const rock = document.querySelector('.rock');
@@ -10,7 +8,11 @@ const rockImg = document.querySelector('.rock-img');
 
 
 const closeBtn = document.querySelector('.close-btn');
+
 const modal = document.querySelector('.modal-overlay');
+const desktopModal = document.querySelector('.desktop-modal-overlay')
+
+
 const imgConatiner = document.querySelector('.img-container');
 const imgConatiner2 = document.querySelector('.img-container2');
 const showContainer = document.querySelector('.step-two-container');
@@ -28,6 +30,11 @@ const ruleS2 = document.querySelector('.result-rules');
 
 let score = document.querySelector('.score');
 const playagain = document.querySelector('.play-again');
+const playhead = document.querySelector('.play-heading')
+
+
+
+// window.addEventListener("DOMcontentLoaded", zero ());
 
 // {
 // working with paper
@@ -72,6 +79,10 @@ if (paper.elementClicked = true) {
     setTimeout(() => {
       theHousePicked.classList.add('show-the-house');
     }, 500)
+
+    setTimeout(() => {
+      playhead.classList.add('show-play-heading');
+    }, 1500)
     
     
   },2000)
@@ -130,9 +141,12 @@ sicssor.addEventListener("click", function(animate){
 
           setTimeout(() => {
             theHousePicked.classList.add('show-the-house');
+           
           }, 500)
         
-          
+          setTimeout(() => {
+            playhead.classList.add('show-play-heading');
+          }, 1500)
 
         },2000)
         
@@ -190,9 +204,12 @@ rock.addEventListener("click", function(animate){
 
           setTimeout(() => {
             theHousePicked.classList.add('show-the-house');
+            
           }, 500)
-
-         
+          setTimeout(() => {
+            playhead.classList.add('show-play-heading');
+          }, 1500)
+          
         },2000);
        
       }
@@ -212,16 +229,19 @@ rock.addEventListener("click", function(animate){
 function moDal(){
   ruleS.addEventListener("click", function(){
     modal.classList.add('open-modal');
+    desktopModal.classList.add('desktop-open-modal');
 
   });
 
   ruleS2.addEventListener("click", function(){
     modal.classList.add('open-modal');
-
+    desktopModal.classList.add('desktop-open-modal');
+    
   });
 
   closeBtn.addEventListener("click", function(){
     modal.classList.remove('open-modal');
+    desktopModal.classList.remove('desktop-open-modal');
   });
 }
 moDal();
@@ -240,10 +260,10 @@ function random(){
 
  housePickedImg.src = `images/icon-${img}.svg`;
 
- function getRandomimgs() {
-  return Math.floor(Math.random() * 2);
+//  function getRandomimgs() {
+//   return Math.floor(Math.random() * 2);
 
-}
+// }
 
 
 
@@ -251,20 +271,20 @@ function random(){
 
 if(img === 'paper'){
   houseCircle.style.backgroundImage = "radial-gradient(hsl(230, 89%, 62%) , hsl(230, 89%, 65%)";
-    results()
+    // results()
     // animatE()
 }
 
 else if(img === 'scissors'){
   houseCircle.style.backgroundImage = " radial-gradient(hsl(39, 89%, 49%) , hsl(40, 84%, 53%))";
 
-  result1();
+  // result1();
   // animatE()
 }
 
 else if(img === 'rock'){
   houseCircle.style.backgroundImage = "radial-gradient(hsl(349, 71%, 52%) ,hsl(349, 70%, 56%))";
-  result2();
+  // result2();
   // animatE()
 }
 
@@ -276,17 +296,17 @@ random();
 // }
 
 function results() {
-
+  
   if (img === 'rock') {
-    setScore(resultHeading.textContent = "you win",  score)
+    setScore(resultHeading.textContent = "you win",  tar=score)
   }
   
    else if(img ===  'scissors') {
-    setScore(resultHeading.textContent = "you lose",   score)
+    setScore(resultHeading.textContent = "you lose",   tar=score)
   }
 
  else if(img ===  'paper') {
-    setScore(resultHeading.textContent = "draw",   score)
+    setScore(resultHeading.textContent = "draw",   tar=score)
   }
 
 }
@@ -297,81 +317,68 @@ results()
 function result1() {
   
   if (img === 'paper') {
-     setScore(resultHeading.textContent = "you win",  score)
+     setScore(resultHeading.textContent = "you win",  tar=score)
   }
   
  else if(img === 'rock') {
-   setScore(resultHeading.textContent = "you lose",   score)
+   setScore(resultHeading.textContent = "you lose",   tar= score)
   } 
  else if(img === 'scissors') {
-    setScore(resultHeading.textContent = "draw",  score)
+    setScore(resultHeading.textContent = "draw",  tar= score)
   }
 }
 result1();
 
 
 function result2() {
-  
+ 
   if (img === 'scissors') {
-    setScore(resultHeading.textContent = "you win",   score)
+    setScore(resultHeading.textContent = "you win",   tar= score)
   }
   
  else if(img === 'paper') {
-    setScore(resultHeading.textContent = "you lose",   score)
+    setScore(resultHeading.textContent = "you lose",   tar= score)
   } 
  else if(img === 'rock') {
-    setScore(resultHeading.textContent = "draw",   score)
+    setScore(resultHeading.textContent = "draw",    tar= score )
   }
 }
 result2 ();
 
 
-
+// score=0
 
 // setScore(state = 'init', tar = score);
 
-function setScore(resultHeading , score ){ 
-  
-
+function setScore(resultHeading , tar ){
+ 
+ 
   if(resultHeading === "you win"){
-    score.innerHTML++;
+
+    
+    tar.textContent++;
     youpicked.classList.add('animation')
     theHousePicked.classList.remove('animation')
 }
 
 
  else if( resultHeading === "you lose"){
+ 
  theHousePicked.classList.add('animation')
  youpicked.classList.remove('animation')
-    if(score.textContent > 0){
-      score.innerHTML--;
+    if(tar.textContent > 0){
+      tar.textContent--;
     }
 }
 
 else if( resultHeading === "draw"){
   theHousePicked.classList.add('animation')
   youpicked.classList.add('animation')
-  // score.innerHTML = 0;
+  tar.textContent = 0;
  }
-
+//  console.log(score)
 }
-
-// function animatE(){
-  // if(resultHeading === "you win"){
-    
-  // }
-  
-  // else{
-  //   youpicked.classList.remove('animation')
-  // }
-  
-  // if(resultHeading === "you lose"){
-  //   theHousePicked.classList.add('animation')
-  // }else{
-  //  theHousePicked.classList.remove('animation')
-  // }
-// }
-// animatE()
+console.log(score)
 
 
 playagain.addEventListener("click", function(){
