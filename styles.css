@@ -176,7 +176,7 @@ h2 {
 .inner-circle {
   width: 100%;
   height: 100%;
-  background-color: var(--color-White);
+  background-color: #F9F9F9;
   border-radius: 100px;
   display: grid;
   justify-content: center;
@@ -276,7 +276,7 @@ h2 {
 }
 
 
-.close-btn {
+.close-btn,.desktop-close-btn {
   font-size: 2.5rem;
   background-color: inherit;
   border: none;
@@ -284,7 +284,7 @@ h2 {
   cursor: pointer;
 }
 
-.close-btn:hover {
+.close-btn:hover,.desktop-close-btn:hover {
   color: var(--clr-red-light);
   transform: scale(0.5);
   transition: all linear 0.3s;
@@ -447,9 +447,12 @@ h2 {
 
 @media (min-width:768px) {
 
+
+  
   .modal-overlay,  .step-two-para{
     display: none;
   }
+
 
   
 
@@ -491,10 +494,8 @@ h2 {
 }
 
 .step-two-container {
-
-  width: 623px;
-  transform: translate(-3px, 10px);
-  transform: translate(-59px, 10px);
+  width: 700px;
+  transform: translate(-86px, 10px);
 }
 
 
@@ -529,12 +530,14 @@ position: absolute;
 
 .result-rules {
   position: absolute;
-  left: 97%;
+  /* left: 97%; */
   top: 123%;
-  transform: translateX(-50%);
+  transform: translateX(309px);
 }
 
-.desktop-modal-overlay{
+
+
+ .desktop-modal-overlay{
   display: block;
   position: fixed;
   top: 0;
@@ -544,27 +547,22 @@ position: absolute;
   background-color:hsl(0, 1%, 1%,0.5) ;
   display: grid;
   place-items: center;
-  visibility: hidden;
-   z-index: -10;
+  /* visibility: hidden; */
+   /* z-index: -10; */
+   /* transition: all linear 0.3s; */
+   /* transform: translate(-100); */
    transform: scale(0);
-transition: all linear 0.3s;
 }
-
-
 
 
 .desktop-open-modal {
-  visibility: visible;
-  z-index: 10;
+  /* visibility: visible; */
+  /* z-index: 10; */
   transform: scale(1);
-transition: all linear 0.3s;
-}
+/* transition: all linear 0.3s; */
+} 
 
-.desktop-flexbox{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
 
 .desktop-modal-container {
   width: 50vw;
@@ -574,6 +572,22 @@ transition: all linear 0.3s;
   justify-content: center;
   align-items: flex-start;
   background-color: #fff;
+  /* visibility: hidden; */
+  /* transform: scale(0); */
+  /* transition: all linear 0.3s; */
+}
+
+.desktop-open-modal-container{
+  /* visibility: visible; */
+  transform: scale(1);
+  /* transition: all linear 0.3s; */
+}
+
+
+.desktop-flexbox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .desktop-img {
@@ -597,8 +611,13 @@ transition: all linear 0.3s;
   position: absolute;
   grid-gap: 10px;
   top: 10px;
-  transform: translate(202px, 58px);
+  transform: translate(245px, 58px);
+  transition: all ease-in 0.3s;
 }
+
+
+
+
 
 .you-picked, .the-house-picked{
   width: 190px;

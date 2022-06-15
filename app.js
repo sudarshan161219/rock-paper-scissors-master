@@ -8,7 +8,10 @@ const rockImg = document.querySelector('.rock-img');
 
 
 const closeBtn = document.querySelector('.close-btn');
+const desktopcloseBtn = document.querySelector('.desktop-close-btn')
 
+
+const desktopmodalcontainer = document.querySelector('.desktop-modal-container');
 const modal = document.querySelector('.modal-overlay');
 const desktopModal = document.querySelector('.desktop-modal-overlay')
 
@@ -230,18 +233,27 @@ function moDal(){
   ruleS.addEventListener("click", function(){
     modal.classList.add('open-modal');
     desktopModal.classList.add('desktop-open-modal');
+    desktopmodalcontainer.classList.add('.desktop-open-modal-container');
 
   });
 
   ruleS2.addEventListener("click", function(){
     modal.classList.add('open-modal');
     desktopModal.classList.add('desktop-open-modal');
+    desktopmodalcontainer.classList.add('.desktop-open-modal-container');
     
   });
 
   closeBtn.addEventListener("click", function(){
     modal.classList.remove('open-modal');
     desktopModal.classList.remove('desktop-open-modal');
+    desktopmodalcontainer.classList.remove('.desktop-open-modal-container');
+  });
+
+  desktopcloseBtn.addEventListener("click", function(){
+    desktopModal.classList.remove('desktop-open-modal');
+    desktopmodalcontainer.classList.remove('.desktop-open-modal-container');
+
   });
 }
 moDal();
@@ -388,6 +400,7 @@ playagain.addEventListener("click", function(){
   showContainer.classList.remove('show-step-two-container');
    ruleS.classList.remove('rules-hide');
    theHousePicked.classList.remove('show-the-house')
+   playhead.classList.remove('show-play-heading')
   
 });
 
