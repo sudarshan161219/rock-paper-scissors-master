@@ -436,8 +436,10 @@ h2 {
 
 
 .attribution{
+  margin-top: 5rem;
   font-size: 1.2rem;
   color: #F9F9F9;
+  text-align: center;
 
 }
 
@@ -713,6 +715,7 @@ h2 {
 
 	.triangle {
 		width: 25%;
+    top: 28%;
 	}
 
 	.rules {
